@@ -5,14 +5,15 @@ Created on Fri Feb 11 10:23:23 2022
 
 @author: teixeiraedson
 """
+# In this code sample I will implement a bloom filter to check the availability of a requested username
 
-
+# Importing hashlib
 import hashlib
 
 
 # Defining the Bloom Filter lenght
 bf_lenght = 10
-# Setting its values to 0
+# Setting the Bloom Filter values to 0
 bf = [0] * bf_lenght
 
 # Converting hash values into integers
