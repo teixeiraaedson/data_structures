@@ -1,3 +1,4 @@
+# Python 3.9.7
 # -*- coding: utf-8 -*-
 """
 Created on Fri Feb 11 10:23:23 2022
@@ -14,7 +15,7 @@ bf_lenght = 10
 # Setting its values to 0
 bf = [0] * bf_lenght
 
-# Converting hass values into them into integers
+# Converting hash values into integers
 def bytes_to_int(hash_value):
     return int.from_bytes(hash_value, byteorder='big')
 
@@ -45,7 +46,7 @@ def set_bloom(indices):
 # than 90% of the total elements in the list
 while True:
     if fill_percent() > 90.0:
-        print("Resetting Bloom Filter-List")
+        print("Bloom Filter List reset")
         bf = [0] * bf_lenght
 
 # Capturing username input and encoding it in 'utf-8' for hashing next 
@@ -60,16 +61,17 @@ while True:
     hash2.update(username)
     hash3.update(username)
 
-# Maping input data to the defined output length (bf_lenght)
+# Maping input data to the defined output length
     hash_values = [hash1.digest(), hash2.digest(), hash3.digest()]
 
 # Storing the integers (converted hash values) in a list
-    hashints = list(map(bytes_to_int, hash_values))
-    indices = list(map(bf_index, hashints))
+    hashintegers = list(map(bytes_to_int, hash_values))
+    indices = list(map(bf_index, hashintegers))
 
 # Username is available
     if new_query(indices):
-        print("username available")
+        print("The username is available")
         set_bloom(indices)
+# The username probably is not available
     else:
-        print("username probably not available")
+        print("The username probably is not available")
